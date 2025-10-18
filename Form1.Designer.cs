@@ -1,4 +1,4 @@
-﻿namespace StroboTech_Visualize
+namespace StroboTech_Visualize
 {
     partial class Form1
     {
@@ -11,6 +11,8 @@
         private System.Windows.Forms.Label lblStdDev;
         private System.Windows.Forms.Label lblVRms;
         private System.Windows.Forms.Label lblFreqDom;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel lblStatus;
 
         private void InitializeComponent()
         {
@@ -32,6 +34,18 @@
             lblStdDev = new Label();
             lblVRms = new Label();
             lblFreqDom = new Label();
+
+            // -------------------- Barra de Status --------------------
+            statusStrip = new StatusStrip();
+            lblStatus = new ToolStripStatusLabel();
+
+            statusStrip.Items.Add(lblStatus);
+            statusStrip.Dock = DockStyle.Bottom;
+            statusStrip.BackColor = Color.FromArgb(240, 240, 240);
+            lblStatus.Text = "Grupo de Projeto Alfas - https://alfasweb.com.br - 2025";
+            lblStatus.TextAlign = ContentAlignment.MiddleRight;
+            lblStatus.ForeColor = Color.Black;
+            lblStatus.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
 
             panelInfo.SuspendLayout();
             legendPanel.SuspendLayout();
@@ -62,14 +76,14 @@
 
             // -------------------- Gráfico --------------------
             plotGrafico.Location = new Point(12, 12);
-            plotGrafico.Size = new Size(720, 696);
+            plotGrafico.Size = new Size(720, 670);
             plotGrafico.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             plotGrafico.PanCursor = Cursors.Hand;
             plotGrafico.ZoomRectangleCursor = Cursors.Cross;
             plotGrafico.Model = new OxyPlot.PlotModel { Padding = new OxyPlot.OxyThickness(10) };
 
             // -------------------- Painel lateral --------------------
-            panelInfo.Size = new Size(336, 696);
+            panelInfo.Size = new Size(336, 670);
             panelInfo.Location = new Point(744, 12);
             panelInfo.BackColor = Color.FromArgb(245, 245, 245);
             panelInfo.BorderStyle = BorderStyle.FixedSingle;
@@ -112,7 +126,7 @@
             linhaDivisoria.BackColor = Color.Gray;
             linhaDivisoria.Height = 2;
             linhaDivisoria.Width = panelInfo.Width - 20;
-            linhaDivisoria.Location = new Point(10, 400); // abaixo das métricas
+            linhaDivisoria.Location = new Point(10, 400);
             panelInfo.Controls.Add(linhaDivisoria);
 
             // -------------------- Botão Reset Zoom --------------------
@@ -157,7 +171,6 @@
             btnZ.Click += (s, e) => FiltrarEixo("Z");
             panelInfo.Controls.Add(btnZ);
 
-
             // -------------------- Métricas --------------------
             ConfigureMetricLabel(lblPeakAcc, "Pico Aceleração: 0.00 m/s²", Color.DarkRed, 180);
             ConfigureMetricLabel(lblRmsAcc, "RMS Aceleração: 0.00 m/s²", Color.DarkBlue, 220);
@@ -171,13 +184,22 @@
             ClientSize = new Size(1080, 720);
             Controls.Add(plotGrafico);
             Controls.Add(panelInfo);
+            Controls.Add(statusStrip); // <- adiciona a barra de status
             Text = "Strobotech Visualize - V1.0";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 
             panelInfo.ResumeLayout(false);
             legendPanel.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
+        // -------------------- Atualizar status --------------------
+        private void AtualizarStatus(string mensagem)
+        {
+            lblStatus.Text = mensagem;
+            statusStrip.Refresh();
+        }
 
         // -------------------- Função auxiliar para labels --------------------
         private void ConfigureMetricLabel(Label lbl, string text, Color cor, int top)
@@ -187,8 +209,9 @@
             lbl.Text = text;
             lbl.Location = new Point(10, top);
             lbl.Size = new Size(300, 30);
-            lbl.AutoSize = false; // mantém o tamanho original
+            lbl.AutoSize = false;
         }
+
         private Panel legendPanel;
         private Panel colorX;
         private Label lblX;

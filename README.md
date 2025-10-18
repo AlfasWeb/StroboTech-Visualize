@@ -66,43 +66,39 @@ math
 Install-Package OxyPlot.WindowsForms
 Compile e execute (F5).
 
-🧠 Estrutura de Código
-bash
+### 🧠 Estrutura de Código
+  ```bash
+  StroboTech_Visualize/
+  ├── Form1.cs                # Lógica principal da aplicação
+  ├── Form1.Designer.cs       # Layout do formulário
+  ├── Program.cs              # Ponto de entrada
+  ├── Resources/              # Ícones, imagens e arquivos auxiliares
+  └── Data/                   # CSVs de exemplo (opcional)
 
-StroboTech_Visualize/
-├── Form1.cs                # Lógica principal da aplicação
-├── Form1.Designer.cs       # Layout do formulário
-├── Program.cs              # Ponto de entrada
-├── Resources/              # Ícones, imagens e arquivos auxiliares
-└── Data/                   # CSVs de exemplo (opcional)
+### Principais componentes no Form1.Designer.cs
+  ```bash
+  btnAdicionar — botão “Adicionar CSV”
+  btnLimpar — botão “Limpar Dados”
+  plotGrafico — componente OxyPlot para exibir os sinais
+  panelInfo — painel lateral com as métricas
+  lblPeakAcc, lblRmsAcc, lblStdDev, lblVRms, lblFreqDom — rótulos informativos
 
-Principais componentes no Form1.Designer.cs
-btnAdicionar — botão “Adicionar CSV”
+###🔧 Extensões Possíveis
+  ```bash
+  🪄 Alternar entre modo curvas e modo barras via menu dropdown.
+  📉 Adicionar filtros digitais (passa-alta, passa-baixa).
+  📡 Importar dados de sensores em tempo real.
+  📁 Exportar resultados (CSV, PDF, imagem do gráfico).
 
-btnLimpar — botão “Limpar Dados”
+### 🧑‍💻 Autor
+```bash
+  Desenvolvido por: Rolly Santos e Grupo Alfas
+  Versão: 1.0
+  Contato: contato@alfasweb.com.br
 
-plotGrafico — componente OxyPlot para exibir os sinais
-
-panelInfo — painel lateral com as métricas
-
-lblPeakAcc, lblRmsAcc, lblStdDev, lblVRms, lblFreqDom — rótulos informativos
-
-🔧 Extensões Possíveis
-🪄 Alternar entre modo curvas e modo barras via menu dropdown.
-
-📉 Adicionar filtros digitais (passa-alta, passa-baixa).
-
-📡 Importar dados de sensores em tempo real.
-
-📁 Exportar resultados (CSV, PDF, imagem do gráfico).
-
-🧑‍💻 Autor
-Desenvolvido por: Rolly Santos e Grupo Alfas
-Versão: 1.0
-Contato: contato@alfasweb.com.br
-
-📜 Licença
-Este projeto é distribuído sob a licença MIT.
-Sinta-se livre para usar, modificar e redistribuir conforme necessário.
+### 📜 Licença
+  ```bash
+  Este projeto é distribuído sob a licença MIT.
+  Sinta-se livre para usar, modificar e redistribuir conforme necessário.
 
 💡 Nota: Este projeto foi construído para experimentos de análise de vibração e aceleração em três eixos, com foco em clareza visual e facilidade de uso.

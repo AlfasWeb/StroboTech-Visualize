@@ -98,7 +98,7 @@ Compile e execute (F5).
 
 ---
 
-###🔧 Extensões Possíveis
+### 🔧 Extensões Possíveis
 
   🪄 Alternar entre modo curvas e modo barras via menu dropdown.
   

@@ -1,4 +1,4 @@
-﻿namespace StroboTech_Visualize
+namespace StroboTech_Visualize
 {
     partial class Form1
     {

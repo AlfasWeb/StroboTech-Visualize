@@ -248,10 +248,10 @@ namespace StroboTech_Visualize
             double freqDom = idxMax * sampleRate / N;
 
             // === Exibir resultados (labels ou console) ===
-            lblPeakAcc.Text = $"Pico de Aceleração: {aPeak:F3} m/s²";
-            lblRmsAcc.Text = $"RMS de Aceleração: {aRMS:F3} m/s²";
-            lblStdDev.Text = $"Desvio padrão: {stdDev:F3} m/s²";
-            lblVRms.Text = $"Velocidade RMS: {vRMS:F3} m/s";
+            lblPeakAcc.Text = $"Pico de Aceleração: {aPeak:F3} mm/s²";
+            lblRmsAcc.Text = $"RMS de Aceleração: {aRMS:F3} mm/s²";
+            lblStdDev.Text = $"Desvio padrão: {stdDev:F3} mm/s²";
+            lblVRms.Text = $"Velocidade RMS: {vRMS:F3} mm/s";
             lblFreqDom.Text = $"Freq. dominante: {freqDom:F3} Hz";
         }
         private void PlotarGraficoUnico(List<Dado> dados)
@@ -294,7 +294,7 @@ namespace StroboTech_Visualize
                 Position = OxyPlot.Axes.AxisPosition.Left,
                 Minimum = yMin * 1.1, // um pouco de folga abaixo do menor valor
                 Maximum = yMax * 1.1, // um pouco de folga acima do maior valor
-                Title = "Aceleração (m/s²)",
+                Title = "Aceleração (mm/s²)",
                 MajorGridlineStyle = LineStyle.Solid,
                 MinorGridlineStyle = LineStyle.Dot,
                 MajorGridlineColor = OxyColor.FromRgb(230, 230, 230),
@@ -311,7 +311,7 @@ namespace StroboTech_Visualize
                 Color = OxyColors.Red,
                 StrokeThickness = 2,
                 MarkerType = MarkerType.None,
-                TrackerFormatString = "Eixo X\nTempo: {2:0.000}s\nValor: {4:0.000} m/s²"
+                TrackerFormatString = "Eixo X\nTempo: {2:0.000}s\nValor: {4:0.000} mm/s²"
             };
             var serieY = new OxyPlot.Series.LineSeries
             {
@@ -319,7 +319,7 @@ namespace StroboTech_Visualize
                 Color = OxyColors.Green,
                 StrokeThickness = 2,
                 MarkerType = MarkerType.None,
-                TrackerFormatString = "Eixo Y\nTempo: {2:0.000}s\nValor: {4:0.000} m/s²"
+                TrackerFormatString = "Eixo Y\nTempo: {2:0.000}s\nValor: {4:0.000} mm/s²"
             };
             var serieZ = new OxyPlot.Series.LineSeries
             {
@@ -327,7 +327,7 @@ namespace StroboTech_Visualize
                 Color = OxyColors.Blue,
                 StrokeThickness = 2,
                 MarkerType = MarkerType.None,
-                TrackerFormatString = "Eixo Z\nTempo: {2:0.000}s\nValor: {4:0.000} m/s²"
+                TrackerFormatString = "Eixo Z\nTempo: {2:0.000}s\nValor: {4:0.000} mm/s²"
             };
 
             foreach (var d in dados)
